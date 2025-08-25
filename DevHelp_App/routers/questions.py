@@ -5,6 +5,11 @@ import models, schemas
 
 router = APIRouter(prefix="/questions", tags=["Questions"])
 
+@router.get("/", response_model=list[schemas.QuestionResponse])
+def get_all_questions(db: Session = Depends(get_db)):
+    return db.query(models.Question).all()
+
+
 @router.post("/", response_model=schemas.QuestionResponse)
 def create_question(question: schemas.QuestionCreate, user_id: int, db: Session = Depends(get_db)):
     new_question = models.Question(
