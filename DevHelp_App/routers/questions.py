@@ -3,7 +3,8 @@ from sqlalchemy.orm import Session
 from database import get_db
 import models, schemas
 
-router = APIRouter(prefix="/questions", tags=["Questions"])
+router = APIRouter(tags=["Questions"]) 
+
 
 @router.get("/", response_model=list[schemas.QuestionResponse])
 def get_all_questions(db: Session = Depends(get_db)):

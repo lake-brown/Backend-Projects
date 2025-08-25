@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from database import engine, get_db
 import models
-from routers import users, questions, votes, auth  # auth is here
+from routers import users, questions, votes, auth  
 
 ADMIN_EMAIL = "admin@example.com"
 ADMIN_PASSWORD = "adminpassword"
