@@ -1,4 +1,3 @@
-# models.py
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship, declarative_base
 from datetime import datetime
@@ -33,7 +32,7 @@ class Question(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, nullable=False)
     content = Column(String, nullable=False)
-    user_id = Column(Integer, ForeignKey("users.id"))
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # Relationships
@@ -50,8 +49,8 @@ class Answer(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     content = Column(String, nullable=False)
-    question_id = Column(Integer, ForeignKey("questions.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
+    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # Relationships
@@ -67,8 +66,8 @@ class Vote(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     vote_type = Column(String, nullable=False)  # "upvote" or "downvote"
-    question_id = Column(Integer, ForeignKey("questions.id"))
-    user_id = Column(Integer, ForeignKey("users.id"))
+    question_id = Column(Integer, ForeignKey("questions.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
 
     # Relationships
     question = relationship("Question", back_populates="votes")
