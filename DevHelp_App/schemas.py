@@ -41,7 +41,9 @@ class QuestionBase(BaseModel):
     content: str  # matches the model's "body" or "content"
 
 class QuestionCreate(QuestionBase):
-    pass
+     title: str
+    content: str
+    user_id: int 
 
 class QuestionResponse(QuestionBase):
     id: int
