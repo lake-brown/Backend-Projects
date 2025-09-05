@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg
+*.egg-info/
+*.pyc
+
+# Virtual environment
+devenv/
+env/
+venv/
+
+# VSCode / IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# SQLite database (if you had one locally)
+*.db
+
+# Logs
+*.log
+
+# MacOS
+.DS_Store
